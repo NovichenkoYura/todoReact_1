@@ -1,0 +1,23 @@
+.flexWrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.footerWrap button {
+  color: black;
+  outline: none;
+  height: 25px;
+  cursor: pointer;
+  border: none;
+}
+
+.footerWrap {
+  display: flex;
+  flex-flow: row;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+}
