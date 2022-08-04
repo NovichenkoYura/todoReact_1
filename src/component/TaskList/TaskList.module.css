@@ -33,6 +33,14 @@
   color: floralwhite;
 }
 
+.close {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  color: floralwhite;
+  text-decoration: line-through;
+}
+
 .buttons {
   width: 20%;
   display: flex;
@@ -63,4 +71,20 @@
   to {
     opacity: 0;
   }
+}
+
+.footerWrap button {
+  color: black;
+  outline: none;
+  height: 25px;
+  cursor: pointer;
+  border: none;
+}
+
+.footerWrap {
+  display: flex;
+  flex-flow: row;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
 }
