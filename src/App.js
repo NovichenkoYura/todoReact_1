@@ -5,7 +5,7 @@ import { TaskList } from './component/TaskList/TaskList';
 import React, { useState } from 'react';
 
 
-const App = (addTasks) => {
+const App = () => {
   const [todo, setTodo] = useState([
     {
       id: 1,
@@ -24,18 +24,10 @@ const App = (addTasks) => {
     }
 
   ])
-  const onBtnClick = () => { 
-
-    setTodo([...todo, addTasks])
- 
-  }
-
-  
+   
 
   return (
-    <div className="App">
-      <button onClick={onBtnClick}>add</button>
-      
+    <div className="App">          
 
       <AddItem todo={todo} setTodo={ setTodo}/>
       <TaskList todo={todo} setTodo={ setTodo}/>

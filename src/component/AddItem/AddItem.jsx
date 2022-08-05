@@ -6,19 +6,18 @@ import {v4 as uuidv4} from "uuid"
 
 export const AddItem = ({todo, setTodo}) => {
     const [value, setValue] = useState('')
-    console.log(value)
     
     const addTodo = () => {
-        setTodo(
+        if (value) {
+            setTodo(
             [...todo, {
                 id: uuidv4(),
                 title: value,
                 status: true,
             }]
-        )
-
-        setValue('')
-    
+        )            
+    }        
+        setValue('')    
     }
 
     return (

@@ -1,8 +1,24 @@
 import styled from "styled-components";
 import styles from './TaskList.module.css'
 import { Task } from "../Task/Task";
+import React, { useState, useEffect } from "react";
 
-export const TaskList = ({todo, setTodo}) => {
+export const TaskList = ({ todo, setTodo }) => {
+
+    useEffect(() => {
+        setFiltered(todo)
+    }, [todo])
+    
+    const [filtered, setFiltered] = useState([todo])
+
+    const todoFiltered = (status) => {
+        if (status === 'all') {
+            setFiltered(todo)
+        } else {
+            let newTodo = [...todo].filter(item => item.status === status)
+            setFiltered(newTodo)
+        }
+    }
    
     const deleteTodo = (id) => {
         let newTodo = [...todo].filter(item => item.id !== id)
@@ -20,14 +36,19 @@ export const TaskList = ({todo, setTodo}) => {
         setTodo(newTodo)
     }
 
-    console.log(todo)
+    const todoClearCompleted = (status) => {
+        if (status === false) {
+            let newTodo = [...todo].filter(item => item.status !== status)
+            setFiltered(newTodo)
+        }
+    }  
 
     return (
         
         <div className={styles.flexWrapper}>
             <h2>Task list</h2>
             <div className={styles.TodosWrapper}>
-                {todo.map(item =>
+                {filtered.map(item =>
                     (<div className={styles.todoItem}>
                         <p className={!item.status? styles.close : styles.description} >{ item.title} </p>
                         <div className={styles.buttons}>
@@ -40,11 +61,11 @@ export const TaskList = ({todo, setTodo}) => {
                 
             </div>
             <div className={styles.footerWrap}>
-                <p class="items-left">items left </p>
-                <button id="all-tasks">All </button>
-                <button id="active-tasks" >Active</button>
-                <button id="completed-tasks">Completed</button>
-                <button id="clear-completed-tasks">Clear completed</button>            
+                <p class="items-left">{ todo.length} items left </p>
+                <button  onClick={()=>todoFiltered('all')}>All </button>
+                <button  onClick={()=>todoFiltered(true)}>Active</button>
+                <button  onClick={()=>todoFiltered(false)}>Completed</button>
+                <button  onClick={()=>todoClearCompleted(false)}>Clear completed</button>            
             </div>
         </div>
         
