@@ -8,7 +8,7 @@ export const Footer = () => {
     // return (
     //     <div className={styles.flexWrapper}>
     //         <div className={styles.footerWrap}>
-    //             <p class="items-left">items left </p>
+    //             <p className="items-left">items left </p>
     //             <button id="all-tasks">All </button>
     //                 <button id="active-tasks">Active</button>
     //                 <button id="completed-tasks">Completed</button>

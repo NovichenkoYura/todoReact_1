@@ -61,7 +61,7 @@ export const TaskList = ({ todo, setTodo }) => {
                 
             </div>
             <div className={styles.footerWrap}>
-                <p class="items-left">{ todo.filter(item=>item.status).length} items left </p>
+                <p className="items-left">{ todo.filter(item=>item.status).length} items left </p>
                 <button  onClick={()=>todoFiltered('all')}>All </button>
                 <button  onClick={()=>todoFiltered(true)}>Active</button>
                 <button  onClick={()=>todoFiltered(false)}>Completed</button>
