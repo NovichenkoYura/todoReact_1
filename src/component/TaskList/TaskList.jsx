@@ -38,7 +38,7 @@ export const TaskList = ({ todo, setTodo }) => {
 
     const todoClearCompleted = (status) => {
         if (status === false) {
-            let newTodo = [...todo].filter(item => item.status !== status)
+            let newTodo = [...todo].filter(item => item.status)
             setFiltered(newTodo)
         }
     }  
@@ -48,8 +48,8 @@ export const TaskList = ({ todo, setTodo }) => {
         <div className={styles.flexWrapper}>
             <h2>Task list</h2>
             <div className={styles.TodosWrapper}>
-                {filtered.map(item =>
-                    (<div className={styles.todoItem}>
+                {filtered.map((item, idx) =>
+                    (<div key = {idx} className={styles.todoItem}>
                         <p className={!item.status? styles.close : styles.description} >{ item.title} </p>
                         <div className={styles.buttons}>
                         <input onClick={() => statusTodo(item.id)} type="checkbox" />
@@ -61,7 +61,7 @@ export const TaskList = ({ todo, setTodo }) => {
                 
             </div>
             <div className={styles.footerWrap}>
-                <p class="items-left">{ todo.length} items left </p>
+                <p class="items-left">{ todo.filter(item=>item.status).length} items left </p>
                 <button  onClick={()=>todoFiltered('all')}>All </button>
                 <button  onClick={()=>todoFiltered(true)}>Active</button>
                 <button  onClick={()=>todoFiltered(false)}>Completed</button>

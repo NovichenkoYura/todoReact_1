@@ -7,21 +7,21 @@ import React, { useState } from 'react';
 
 const App = () => {
   const [todo, setTodo] = useState([
-    {
-      id: 1,
-      title: 'first',
-    status: true,
-    },
-    {
-      id: 2,
-      title: 'Second',
-    status: true,
-    },
-    {
-      id: 3,
-      title: 'Third',
-    status: true,
-    }
+    // {
+    //   id: 1,
+    //   title: 'first',
+    // status: true,
+    // },
+    // {
+    //   id: 2,
+    //   title: 'Second',
+    // status: true,
+    // },
+    // {
+    //   id: 3,
+    //   title: 'Third',
+    // status: true,
+    // }
 
   ])
    
